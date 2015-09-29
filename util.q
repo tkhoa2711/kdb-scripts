@@ -17,3 +17,11 @@ fsm: { ([ state: `s0`s1] event0: `s0`s1; event1: `s1`s0)[x;y] };
 / a function applies over a list of arguments and return a dictionary with the given id(s)
 / it's useful for retrieving the result for each of the id as we wish
 apply: {[f;ids;args1;args2] ![ids; f'[ids;args1;args2]] };
+
+/ perform a query/function to another remote kdb within a query
+remote_q: {[host;f;arg1;arg2]
+    h: hopen host;
+    t: h (f;arg1;arg2);
+    hclose h;
+    :t
+};
