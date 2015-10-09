@@ -25,3 +25,6 @@ remote_q: {[host;f;arg1;arg2]
     hclose h;
     :t
 };
+
+/ search for table whose name matches the regex
+lookup: { {x where {x like y}[x;y]}[tables[];x] }
