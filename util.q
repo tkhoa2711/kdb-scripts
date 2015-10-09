@@ -1,5 +1,13 @@
 / util.q
 
+/ ----------------------------------------------------------------------------
+/ NOTE
+/
+/ functional exec, update
+/ ?[ table; whereConditions; groupBy; selectedColumns]
+/ ![ table; whereConditions; groupBy; updatedColumns]
+/ ----------------------------------------------------------------------------
+
 / check if the current kdb is HDB or RDB
 is_hdb: { @[value;`.Q.pf;`rdb]~`date};
 
