@@ -3,9 +3,19 @@
 / ----------------------------------------------------------------------------
 / NOTE
 /
-/ functional exec, update
+/ functional select, exec, update:
 / ?[ table; whereConditions; groupBy; selectedColumns]
 / ![ table; whereConditions; groupBy; updatedColumns]
+/ example:
+/ select c from t where x <= 1
+/ -> ?[t; enlist (<=; `x; 1); (); (enlist `c)!enlist `c)];
+/
+/ exec c from t where x <= 1
+/ -> ?[t; enlist (<=; `x; 1); (); `c];
+/
+/ exec last c from t where x <= 1, z = `v
+/ -> ?[t; enlist[(<=; `x; y); (=; `z; enlist `v)]; (); (last;`c)];
+/
 / ----------------------------------------------------------------------------
 
 / check if the current kdb is HDB or RDB
