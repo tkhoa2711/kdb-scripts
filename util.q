@@ -49,3 +49,6 @@ remote_q: {[host;f;arg1;arg2]
 
 / search for table whose name matches the regex
 lookup: { {x where {x like y}[x;y]}[tables[];x] }
+
+/ check if a date is weekday
+is_weekday: { 1 < x mod 7 };
