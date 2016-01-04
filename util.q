@@ -52,3 +52,6 @@ lookup: { {x where {x like y}[x;y]}[tables[];x] }
 
 / check if a date is weekday
 is_weekday: { 1 < x mod 7 };
+
+/ row count for each table in the db
+rowcount: { ![tables[]; { ?[x; (); (); (count;`i)] } each tables[]] };
